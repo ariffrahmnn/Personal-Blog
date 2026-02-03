@@ -1,0 +1,1 @@
+alert(`Hi, welcome to my personal blog!`)

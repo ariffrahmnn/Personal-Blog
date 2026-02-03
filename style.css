@@ -1,0 +1,8 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border-radius: 20px;
+
+}
