@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  },
+  "name": "capstone---blog",
+  "version": "1.0.0",
+  "description": "hi, this is my starting project of personal blog project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariffrahmnn/Personal-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ariffrahmnn/Personal-Blog/issues"
+  },
+  "homepage": "https://github.com/ariffrahmnn/Personal-Blog#readme"
+}
