@@ -1,9 +1,11 @@
 import express from 'express'
-import bodyParser from 'body-parser'
+import bodyParser, { urlencoded } from 'body-parser'
 import ejs from 'ejs';
 
 const app = express();
 const port = 3000;
+
+app.use(bodyParser, urlencoded({ extended:true }))
 
 app.set("view engine", "ejs");
 
@@ -21,7 +23,6 @@ app.get("/news", (req, res) => {
 app.get("/post", (req, res) => {
     res.render("post.ejs")
 })
-
 
 app.listen(port, (req, res) => {
     console.log(`App is running on port ${port}`)
