@@ -1,6 +1,7 @@
 .nav-container {
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .nav-list {
@@ -8,6 +9,7 @@
     list-style: none;
     padding: 0;
     gap: 30px;
+    margin-top: 15px;
 }
 
 .nav-list a {               
@@ -16,3 +18,33 @@
     background-color: grey;
     padding: 5px;
 }
+
+.carousel-item > img{
+    width: 80%;
+    height: 500px;
+
+}
+
+.main-wrapper {
+    width: 80%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.article-header {
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+
+.card-layout {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.card-body > a {
+    color: grey;
+}
+
+    
