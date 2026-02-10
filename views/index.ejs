@@ -95,15 +95,14 @@
     <article class="card-layout">
       <% posts.forEach(post => { %>
         <div class="card" style="width: 250px">
-          <img
-            src="/styles/images/header1.jpg"
-            class="card-img-top rounded-0"
-            alt="..."/>
+          <img src="styles/images/<%= post.image %>" class="card-img-top rounded-0" alt="..."/>
     
           <div class="card-body">
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text"><%= post.description %></p>
-            <a href="#" class="btn">read more >></a>
+            <div class="card-review">
+              <a href="#" class="btn">read more >></a>
+            </div>
           </div>
         </div>
       <% }) %>
