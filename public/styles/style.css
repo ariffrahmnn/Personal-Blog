@@ -39,12 +39,48 @@
 
 .card-layout {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 100px;
+    margin-left: 5em;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
-.card-body > a {
+.card-text {
+    flex-grow: 1;
+}
+
+.card .btn {
+    margin: auto;
+}
+.card-review > a{
+    margin-bottom: 0;
     color: grey;
+}
+
+.main-form {
+    height: 100vh;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(211, 211, 211);
+    width: 300px;    
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 100px;
+}
+
+.form-container > h1 {
+    font-size: 30px;
 }
 
     
