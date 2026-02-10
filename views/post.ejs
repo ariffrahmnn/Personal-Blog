@@ -1,21 +1,27 @@
 <%- include("partials/header.ejs") %>
 
 <!-- content starting -->
-<header>
-    <nav>
-        <div class="nav-container">
-            <ul class="nav-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/news">News</a></li>
-                <li><a href="/post" >Post</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<main>
+<main class="main-wrapper">
     <div class="body-container">
-        
-        <h1>Hallo this is from post</h1>
+      <article class="main-form">
+        <div class="form-container">
+          <h1>What's News?</h1>
+
+          <form action="/create" method="POST">
+            <div>
+              <input type="text" name="title" placeholder="Title">
+            </div>
+
+            <div>
+              <textarea name="description" placeholder="Description"></textarea>
+            </div>
+
+            <div>
+              <button type="submit">Post</button>
+            </div>
+          </form>
+      </div>
+      </article>
 
     </div>
 
