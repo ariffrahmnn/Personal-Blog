@@ -29,14 +29,12 @@ app.get("/post", (req, res) => {
 app.post("/create", (req, res) => {
     const { title, description } = req.body;
     console.log({ title, description });
-    const newPost = [
+    const newPost =
         {
         id: posts.length + 1,
         title,
         description
-     }
-
-    ];
+     };
 
     posts.push(newPost);
     res.redirect("/");
