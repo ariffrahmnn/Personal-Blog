@@ -2,7 +2,8 @@
   "dependencies": {
     "body-parser": "^2.2.2",
     "ejs": "^4.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "multer": "^2.0.2"
   },
   "name": "capstone---blog",
   "version": "1.0.0",

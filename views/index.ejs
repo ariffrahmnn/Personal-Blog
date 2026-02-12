@@ -88,16 +88,20 @@
   <div class="body-container">
     <div class="article-header">
       <p>review and read the latest arif's stuff</p>
-      <h1>Latest from Arif's stuff</h1>
+      <h1>Latest from Our stuff</h1>
     </div>
     
     <!--Starting cards layout-->
     <article class="card-layout">
       <% posts.forEach(post => { %>
         <div class="card" style="width: 250px">
-          <img src="styles/images/<%= post.image %>" class="card-img-top rounded-0" alt="..."/>
+          <% if (post.image) { %>
+            
+            <img src="/uploads/<%= post.image %>" class="card-img-top rounded-0" alt="..."/>
+            <% } %> 
     
           <div class="card-body">
+          
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text"><%= post.description %></p>
             <div class="card-review">
