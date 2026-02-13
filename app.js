@@ -1,10 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import ejs from 'ejs';
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
-import { isMainThread } from 'worker_threads';
+import methodOverride from "method-override";
 
 const app = express();
 const port = 3000;
@@ -25,6 +24,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
+app.use(methodOverride("_method"))
+
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
 app.use(bodyParser.urlencoded({ extended:true }))
@@ -33,7 +34,7 @@ app.use(express.urlencoded({ extended:true }))
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-const posts = [];
+let posts = []; // Array stored here!
 app.get("/", (req, res) => {
 
     res.render("index.ejs", { posts })
@@ -47,23 +48,29 @@ app.get("/post", (req, res) => {
     res.render("post.ejs")
 });
 
-app.post("/create", upload.single("image"), (req, res) => { 
-
-    const { title, description } = req.body;
+app.post("/create", upload.single("image"), (req, res) => { //post method is working on here!
 
     const image = req.file ? req.file.filename : null;
 
     const newPost =
         {
         id: posts.length + 1,
-        title,
-        description,
+        title: req.body.title,
+        description: req.body.description,
         image
      };
 
     posts.push(newPost);
     res.redirect("/");
 });
+
+app.post("/delete/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+
+    posts = posts.filter(post => post.id !== id);
+
+    res.redirect("/")
+})
 
 app.get("/success", (req, res) => {
     res.render("success.ejs");
