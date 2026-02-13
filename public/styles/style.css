@@ -37,6 +37,27 @@
 
 }
 
+.card {
+    position: relative;
+}
+
+.btn-closed {
+    border-style: none;
+    background-color: transparent;
+    color: gray;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+}
+
+.btn-closed:hover {
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    right: 0;
+    background-color: white;
+}
+
 .card-layout {
     display: flex;
     flex-wrap: wrap;
