@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+<!-- content starting -->
+<main class="main-wrapper">
+    <div class="body-container">
+      <article class="main-form">
+        <div class="form-container">
+          <h1>Edit your post</h1>
+
+          <form action="/edit/<%= post.id %>" enctype="multipart/form-data" method="POST">
+            <div>
+              <input type="text" name="title" placeholder="Title" value="<%= post.title %>">
+            </div>
+
+            <div>
+              <textarea name="description" placeholder="Description"><%= post.description %></textarea>
+            </div>
+
+            <div>
+              <input type="file" name="image">
+            </div>
+
+            <div>
+              <button type="submit">Post</button>
+            </div>
+            
+          </form>
+      </div>
+      </article>
+
+    </div>
+
+
+
+<%- include("partials/footer.ejs") %>
