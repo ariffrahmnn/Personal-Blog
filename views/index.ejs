@@ -94,10 +94,10 @@
     <!--Starting cards layout-->
     <article class="card-layout">
       <% posts.forEach(post => { %>
-      <div class="card" style="width: 250px">
+        <div class="card" style="width: 250px">
+          <form action="/delete/<%= post.id %>" method="POST">
+            <button class="btn-closed" type="submit">X</button>
         <% if (post.image) { %>
-        <form action="/delete/<%= post.id %>" method="POST">
-          <button class="btn-closed" type="submit">X</button>
         </form>
 
         <img
@@ -112,7 +112,7 @@
           <p class="card-text"><%= post.description %></p>
 
           <div class="card-review">
-            <a href="#" class="btn">read more >></a>
+            <a href="/edit/<%= post.id %>" class="btn btn-warning">Edit</a>
           </div>
         </div>
       </div>
