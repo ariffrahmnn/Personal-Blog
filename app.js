@@ -34,9 +34,8 @@ app.use(express.urlencoded({ extended:true }))
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-let posts = []; // Array stored here!
 app.get("/", (req, res) => {
-
+    
     res.render("index.ejs", { posts })
 });
 
@@ -48,6 +47,7 @@ app.get("/post", (req, res) => {
     res.render("post.ejs")
 });
 
+let posts = []; // Array stored here!
 app.post("/create", upload.single("image"), (req, res) => { //post method is working on here!
 
     const image = req.file ? req.file.filename : null;
@@ -72,6 +72,40 @@ app.post("/delete/:id", (req, res) => {
     res.redirect("/")
 })
 
+app.get("/edit/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+
+    const post = posts.find(p => p.id === id);
+
+    if (!post) {
+        return res.send("Post not found");
+    }
+
+    res.render("edit.ejs", { post });
+});
+
+app.post("/edit/:id", upload.single("image"), (req, res) => {
+    const id = parseInt(req.params.id);
+
+    const { title, description } = req.body;
+
+    const postIndex = posts.findIndex(p => p.id === id);
+
+    if (postIndex === -1) {
+        return res.send("Post not found");
+    }
+
+    posts[postIndex].title = title;
+    posts[postIndex].description = description;
+
+    if (req.file) {
+        posts[postIndex].image = req.file.filename;
+    }
+
+    res.redirect("/");
+});
+
+
 app.get("/success", (req, res) => {
     res.render("success.ejs");
 });
@@ -79,3 +113,4 @@ app.get("/success", (req, res) => {
 app.listen(port, (req, res) => {
     console.log(`App is running on port ${port}`)
 })
+
